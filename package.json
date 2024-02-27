@@ -1,25 +1,25 @@
 {
-  "name": "hello-world-module",
+  "name": "webfinger-module",
   "version": "7.0.0",
   "description": "A minimal example of a repository containing an injectable Community Solid Server module",
-  "repository": "git@github.com:CommunitySolidServer/hello-world-module.git",
+  "repository": "git@github.com:CommunitySolidServer/webfinger-module.git",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "lsd:module": "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module",
+  "lsd:module": "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module",
   "lsd:components": "dist/components/components.jsonld",
   "lsd:contexts": {
-    "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^7.0.0/components/context.jsonld": "dist/components/context.jsonld"
+    "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module/^7.0.0/components/context.jsonld": "dist/components/context.jsonld"
   },
   "lsd:importPaths": {
-    "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^7.0.0/components/": "dist/components/",
-    "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^7.0.0/config/": "config/",
-    "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^7.0.0/dist/": "dist/"
+    "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module/^7.0.0/components/": "dist/components/",
+    "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module/^7.0.0/config/": "config/",
+    "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module/^7.0.0/dist/": "dist/"
   },
   "scripts": {
-    "start": "community-solid-server -c @css:config/file.json hello-world-partial.json -f .data -m .",
-    "start-alt": "community-solid-server -c hello-world-file.json -f .data -m .",
+    "start": "community-solid-server -c webfinger-file.json -f .data -m .",
+    "start-partial": "community-solid-server -c @css:config/file.json webfinger-partial.json -f .data -m .",
     "build": "npm run build:ts && npm run build:components",
-    "build:components": "componentsjs-generator -s src -c dist/components -i .componentsignore -r hello-world",
+    "build:components": "componentsjs-generator -s src -c dist/components -i .componentsignore -r webfinger",
     "build:ts": "tsc",
     "prepare": "npm run build",
     "test": "jest"

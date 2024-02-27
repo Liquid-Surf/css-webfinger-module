@@ -1,9 +1,10 @@
 {
   "@context": [
     "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^7.0.0/components/context.jsonld",
-    "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^7.0.0/components/context.jsonld"
+    "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module/^7.0.0/components/context.jsonld"
   ],
   "import": [
+
     "css:config/app/init/static-root.json",
     "css:config/app/main/default.json",
     "css:config/app/variables/default.json",
@@ -36,18 +37,35 @@
     "css:config/util/resource-locker/file.json",
     "css:config/util/variables/default.json",
 
-    "hello-world:config/hello-world.json"
+    "webfinger:config/http/handler/handlers/webfinger.json",
   ],
   "@graph": [
     {
       "comment": "There are many possible configurations in which a Hello World instance can be injected. This is just one example."
     },
     {
-      "@id": "urn:solid-server:default:PrimaryParallelInitializer",
-      "@type": "ParallelHandler",
+      "comment": "These are all the handlers a request will go through until it is handled.",
+      "@id": "urn:solid-server:default:HttpHandler",
+      "@type": "SequenceHandler",
       "handlers": [
-        { "@id" : "urn:my-hello-world:core:HelloWorld" }
+        { "@id": "urn:solid-server:default:Middleware" },
+        {
+          "@id": "urn:solid-server:default:BaseHttpHandler",
+          "@type": "WaterfallHandler",
+          "handlers": [
+            { "@id": "urn:solid-server:default:StaticAssetHandler" },
+            { "@id": "urn:solid-server:default:OidcHandler" },
+
+            { "@id": "urn:webfinger:default:WebfingerHandler" },
+
+            { "@id": "urn:solid-server:default:NotificationHttpHandler" },
+            { "@id": "urn:solid-server:default:StorageDescriptionHandler" },
+            { "@id": "urn:solid-server:default:AuthResourceHttpHandler" },
+            { "@id": "urn:solid-server:default:IdentityProviderHandler" },
+            { "@id": "urn:solid-server:default:LdpHandler" }
+          ]
+        }
       ]
-    }
+    }		
   ]
 }

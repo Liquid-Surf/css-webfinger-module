@@ -8,7 +8,7 @@ describe('My Server', (): void => {
     app = await new AppRunner().create(
       {
         // For testing we created a custom configuration that runs the server in memory so nothing gets written on disk.
-        config: joinFilePath(__dirname, '../config/hello-world-memory.json'),
+        config: joinFilePath(__dirname, '../config/webfinger-memory.json'),
         loaderProperties: {
           // Tell Components.js where to start looking for component configurations.
           // We need to make sure it finds the components we made in our project
