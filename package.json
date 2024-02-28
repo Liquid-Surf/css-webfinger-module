@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "community-solid-server -c webfinger-file.json -f .data -m .",
-    "start-partial": "community-solid-server -c @css:config/file.json webfinger-partial.json -f .data -m .",
+    "start-partial": "community-solid-server -c webfinger-partial.json @css:config/file.json -f .data -m .",
     "build": "npm run build:ts && npm run build:components",
     "build:components": "componentsjs-generator -s src -c dist/components -i .componentsignore -r webfinger",
     "build:ts": "tsc",
