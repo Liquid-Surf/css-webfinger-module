@@ -10,12 +10,12 @@ import { HttpHandler } from '@solid/community-server';
 
 export class WebfingerHttpHandler extends HttpHandler {
   protected readonly logger = getLoggerFor(this);
-  protected readonly webidLocationTemplate: string
+  protected readonly webIdLocationTemplate: string
 
-  public constructor(webidLocationTemplate: string) {
+  public constructor(webIdLocationTemplate: string, webIdStore) {
     super();
-    this.webidLocationTemplate = webidLocationTemplate
-    this.logger.info("PLACEHOLDER="+webidLocationTemplate)
+    this.webIdLocationTemplate = webIdLocationTemplate
+    this.logger.info("PLACEHOLDER="+webIdLocationTemplate)
   }
 
   public async handle({ request, response }: HttpHandlerInput): Promise<void> {
@@ -29,7 +29,7 @@ export class WebfingerHttpHandler extends HttpHandler {
       response.end(JSON.stringify({ error: 'Query parameter "resource" is required' }));
       return;
     }
-		//TODO error if webidLocationTemplate doesn't contain domain and username
+		//TODO error if webIdLocationTemplate doesn't contain domain and username
 		// TODO handle error if no account exist with this webid
 
     // Extract username and domain from resource
@@ -51,7 +51,7 @@ export class WebfingerHttpHandler extends HttpHandler {
           rel: "http://webfinger.net/rel/profile-page",
           type: "text/html",
           // TODO use baseUrl ? Is $domain can be something else than baseUrl ? check RFC
-          webid: this.webidLocationTemplate.replace("${domain}", domain).replace("${username}", username)
+          webid: this.webIdLocationTemplate.replace("${domain}", domain).replace("${username}", username)
         }
       ]
     };
