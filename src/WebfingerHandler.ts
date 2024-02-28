@@ -12,7 +12,7 @@ export class WebfingerHttpHandler extends HttpHandler {
   protected readonly logger = getLoggerFor(this);
   protected readonly webIdLocationTemplate: string
 
-  public constructor(webIdLocationTemplate: string, webIdStore) {
+  public constructor(webIdLocationTemplate: string) {
     super();
     this.webIdLocationTemplate = webIdLocationTemplate
     this.logger.info("PLACEHOLDER="+webIdLocationTemplate)

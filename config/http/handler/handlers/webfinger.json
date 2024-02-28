@@ -14,9 +14,7 @@
       "allowedPathNames": [ "/\\.well-known/webfinger" ],
       "handler": {
         "@type": "WebfingerHttpHandler",
-        "webIdLocationTemplate": {"@id":"urn:webfinger:default:webIdLocationTemplate"},
-        "webIdStore": { "@id": "urn:solid-server:default:WebIdStore" }
-
+        "webIdLocationTemplate": {"@id":"urn:webfinger:default:webIdLocationTemplate"}
       }
     }
   ]
