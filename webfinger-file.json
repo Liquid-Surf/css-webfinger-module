@@ -44,7 +44,7 @@
       "comment": "Overriding the HttpHandler to inject WebfingerHandler"
     },
     {
-      "@id": "ex:myObjectOverride",
+      "@id": "urn:webfinger:default:HttpHandlerOverride",
       "@type": "Override",
       "overrideInstance": { "@id": "urn:solid-server:default:HttpHandler" },
       "overrideParameters": {
