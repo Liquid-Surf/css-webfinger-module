@@ -37,11 +37,11 @@
     "css:config/util/resource-locker/file.json",
     "css:config/util/variables/default.json",
 
-    "webfinger:config/http/handler/handlers/webfinger.json",
+    "webfinger:config/http/handler/handlers/webfinger.json"
   ],
   "@graph": [
     {
-      "comment": "There are many possible configurations in which a Hello World instance can be injected. This is just one example."
+      "comment": "Overriding the HttpHandler to inject WebfingerHandler"
     },
     {
       "comment": "These are all the handlers a request will go through until it is handled.",
@@ -55,9 +55,7 @@
           "handlers": [
             { "@id": "urn:solid-server:default:StaticAssetHandler" },
             { "@id": "urn:solid-server:default:OidcHandler" },
-
             { "@id": "urn:webfinger:default:WebfingerHandler" },
-
             { "@id": "urn:solid-server:default:NotificationHttpHandler" },
             { "@id": "urn:solid-server:default:StorageDescriptionHandler" },
             { "@id": "urn:solid-server:default:AuthResourceHttpHandler" },

@@ -3,6 +3,9 @@
       "https://linkedsoftwaredependencies.org/bundles/npm/webfinger-module/^7.0.0/components/context.jsonld"
   ],
   "@graph": [
+    { "@id": "urn:webfinger:default:WebfingerPlaceholder",
+      "valueRaw": "https://pod.${domain}/${username}/profile/card#me"
+    },
     {
       "@id": "urn:webfinger:default:WebfingerHandler",
       "@type": "RouterHandler",    
@@ -11,6 +14,7 @@
       "allowedPathNames": [ "/\\.well-known/webfinger" ],
       "handler": {
         "@type": "WebfingerHttpHandler",
+        "placeholder": {"@id":"urn:webfinger:default:WebfingerPlaceholder"}
       }
     }
   ]
